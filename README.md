@@ -1,0 +1,2 @@
+# gruenflaechen-analyse
+Bevölkerungsgewichtete Erreichbarkeitsanalyse von Naherholungsgebieten für deutsche Städte
