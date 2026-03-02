@@ -28,7 +28,7 @@ Niemand wohnt weiter als 1 km von einem Naherholungsgebiet entfernt.
 
 ---
 
-## 🔧 Methodik
+## Methodik
 
 **Versorgungsindex:** Linearer Index basierend auf Luftliniendistanz zur nächsten Grünfläche.
 - 0m → Index 1,0 (bestens versorgt)
@@ -40,13 +40,19 @@ Niemand wohnt weiter als 1 km von einem Naherholungsgebiet entfernt.
 
 ---
 
-## 🚀 Verwendung
+## Verwendung
 
 ### Voraussetzungen
 
 ```bash
 pip install osmnx geopandas matplotlib pandas shapely
 ```
+##  Methodische Einschränkungen
+
+- Stadtumland wird nicht berücksichtigt
+- Nur kartierte OSM-Flächen werden analysiert
+- Bewirtschaftete Flächen wie das Meßdorfer Feld fehlen
+- Luftlinie ≠ tatsächlicher Gehweg
 
 ### Zensus-Daten
 
@@ -105,7 +111,7 @@ gruenflaechen-analyse/
 
 ---
 
-## 📄 Lizenz
+## Lizenz
 
 Dieses Projekt steht unter der [MIT Lizenz](LICENSE).  
 Kartendaten © OpenStreetMap contributors · Zensus 2022 © Statistische Ämter des Bundes und der Länder
