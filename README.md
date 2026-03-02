@@ -38,6 +38,13 @@ Niemand wohnt weiter als 1 km von einem Naherholungsgebiet entfernt.
 
 **Naherholungsgebiete:** Wälder, Parks und Naturschutzgebiete aus OpenStreetMap mit einer Mindestfläche von 5.000 m².
 
+###  Methodische Einschränkungen
+
+- Stadtumland wird nicht berücksichtigt
+- Nur kartierte OSM-Flächen werden analysiert
+- Bewirtschaftete Flächen wie das Meßdorfer Feld fehlen
+- Luftlinie ≠ tatsächlicher Gehweg
+  
 ---
 
 ## Verwendung
@@ -47,12 +54,6 @@ Niemand wohnt weiter als 1 km von einem Naherholungsgebiet entfernt.
 ```bash
 pip install osmnx geopandas matplotlib pandas shapely
 ```
-##  Methodische Einschränkungen
-
-- Stadtumland wird nicht berücksichtigt
-- Nur kartierte OSM-Flächen werden analysiert
-- Bewirtschaftete Flächen wie das Meßdorfer Feld fehlen
-- Luftlinie ≠ tatsächlicher Gehweg
 
 ### Zensus-Daten
 
