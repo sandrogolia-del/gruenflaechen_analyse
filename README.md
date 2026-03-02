@@ -30,17 +30,66 @@ Niemand wohnt weiter als 1 km von einem Naherholungsgebiet entfernt.
 
 ## 🔧 Methodik
 
-**Versorgungsindex:** Linearer Index basierend auf Luftliniendistanz zur nächsten Grünfläche.
-- 0m → Index 1,0 (bestens versorgt)
-- 600m → Index 0,0 (unversorgt)
+### Versorgungsindex
 
-**Bevölkerungsgewichtung:** Jede Rasterzelle (100×100m) des Zensus 2022 wird mit ihrem Versorgungsindex gewichtet. Der gewichtete Durchschnitt ergibt die Gesamtversorgungsquote der Stadt.
+Für jede Einwohnerzelle (100×100m) des Zensus 2022 wird die Luftliniendistanz 
+zur nächsten Grünfläche berechnet. Daraus ergibt sich ein linearer Versorgungsindex:
 
-**Naherholungsgebiete:** Wälder, Parks und Naturschutzgebiete aus OpenStreetMap mit einer Mindestfläche von 5.000 m².
+- **0m** → Index 1,0 (bestens versorgt)
+- **600m** → Index 0,0 (unversorgt)
+- Alles dazwischen wird proportional interpoliert
 
+### Einwohnergewichtung
+
+Der Gesamtindex wird **einwohnergewichtet** berechnet – das bedeutet: eine 
+Rasterzelle mit 50 Einwohnern hat mehr Einfluss auf das Gesamtergebnis als eine 
+Zelle mit 5 Einwohnern. Der Index spiegelt damit wider wie gut die **Menschen** 
+versorgt sind, nicht wie gut die **Fläche** versorgt ist.
+
+Zum Vergleich für Bonn:
+- **Flächenbasiert:** 92,7% der Stadtfläche liegt innerhalb von 500m einer Grünfläche
+- **Einwohnergewichtet:** 55,2% – weil dicht besiedelte Bereiche mit schlechter 
+  Versorgung stärker ins Gewicht fallen
+
+### Naherholungsgebiete
+
+Folgende OSM-Tags werden als Naherholungsgebiete klassifiziert 
+(Mindestfläche: 5.000 m²):
+
+| OSM-Tag | Beschreibung |
+|---------|-------------|
+| `leisure=park` | Öffentliche Parks |
+| `leisure=garden` | Gärten (inkl. Kleingärten) |
+| `leisure=nature_reserve` | Naturschutzgebiete |
+| `landuse=forest` | Wälder |
+| `landuse=grass` | Grünflächen und Wiesen |
+| `landuse=recreation_ground` | Ausgewiesene Erholungsflächen |
+
+### Distanzkategorien
+
+| Kategorie | Distanz | Versorgungsindex |
+|-----------|---------|-----------------|
+| Sehr gut | 0–200m | 1,0–0,67 |
+| Gut | 200–400m | 0,67–0,33 |
+| Mittel | 400–600m | 0,33–0,0 |
+| Wenig | >600m | 0,0 |
+
+### ⚠️ Methodische Einschränkungen
+
+- **Stadtumland wird nicht berücksichtigt** – Einwohner in Randlagen können 
+  eine schlechtere Versorgung angezeigt bekommen als in der Realität, da 
+  Grünflächen im direkten Umland nicht einbezogen werden
+- **Nur kartierte OSM-Flächen fließen ein** – bewirtschaftete Flächen die 
+  in der Realität als Naherholungsgebiet genutzt werden (z.B. Feldwege, 
+  das Meßdorfer Feld in Bonn) werden nicht erfasst
+- **Luftlinie statt Gehweg** – die tatsächliche Wegstrecke kann durch 
+  Barrieren wie Straßen, Gleise oder Bebauung länger sein
+- **OSM-Datenlage** – Vollständigkeit und Aktualität der Grünflächen 
+  variiert je nach Stadt
+  
 ---
 
-## 🚀 Verwendung
+## Verwendung
 
 ### Voraussetzungen
 
@@ -105,7 +154,7 @@ gruenflaechen-analyse/
 
 ---
 
-## 📄 Lizenz
+## Lizenz
 
 Dieses Projekt steht unter der [MIT Lizenz](LICENSE).  
 Kartendaten © OpenStreetMap contributors · Zensus 2022 © Statistische Ämter des Bundes und der Länder
