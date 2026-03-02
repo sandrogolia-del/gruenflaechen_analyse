@@ -8,13 +8,14 @@ Bevölkerungsgewichtete Analyse der fußläufigen Erreichbarkeit von Naherholung
 
 | Kategorie | Einwohner | Anteil |
 |-----------|-----------|--------|
-| Sehr gut (0–200m) | 139.028 | 43,3% |
-| Gut (200–400m) | 100.726 | 31,3% |
-| Mittel (400–600m) | 51.129 | 15,9% |
-| Wenig (>600m) | 30.468 | 9,5% |
+| Sehr gut (0–200m) | 161.622 | 50,3% |
+| Gut (200–400m) | 104.914 | 32,6% |
+| Mittel (400–600m) | 38.466 | 12,0% |
+| Wenig (>600m) | 16.349 | 5,1% |
 
-**Gewichteter Versorgungsindex: 55,2%**  
-Niemand wohnt weiter als 1 km von einem Naherholungsgebiet entfernt.
+**Gewichteter Versorgungsindex: 61,1%**  
+**Flächenbasiert (500m Puffer): 95,3%** der Stadtfläche liegt innerhalb von 500m einer Grünfläche  
+**331** Naherholungsgebiete · **923m** maximale Distanz · **213m** mittlere Distanz
 
 ---
 
@@ -32,7 +33,7 @@ Niemand wohnt weiter als 1 km von einem Naherholungsgebiet entfernt.
 
 ### Versorgungsindex
 
-Für jede Einwohnerzelle (100×100m) des Zensus 2022 wird die Luftliniendistanz 
+Für jede Einwohnerzelle (100×100m) des Zensus 2022 wird die Luftliniendistanz
 zur nächsten Grünfläche berechnet. Daraus ergibt sich ein linearer Versorgungsindex:
 
 - **0m** → Index 1,0 (bestens versorgt)
@@ -41,19 +42,19 @@ zur nächsten Grünfläche berechnet. Daraus ergibt sich ein linearer Versorgung
 
 ### Einwohnergewichtung
 
-Der Gesamtindex wird **einwohnergewichtet** berechnet – das bedeutet: eine 
-Rasterzelle mit 50 Einwohnern hat mehr Einfluss auf das Gesamtergebnis als eine 
-Zelle mit 5 Einwohnern. Der Index spiegelt damit wider wie gut die **Menschen** 
+Der Gesamtindex wird **einwohnergewichtet** berechnet – das bedeutet: eine
+Rasterzelle mit 50 Einwohnern hat mehr Einfluss auf das Gesamtergebnis als eine
+Zelle mit 5 Einwohnern. Der Index spiegelt damit wider wie gut die **Menschen**
 versorgt sind, nicht wie gut die **Fläche** versorgt ist.
 
 Zum Vergleich für Bonn:
-- **Flächenbasiert:** 92,7% der Stadtfläche liegt innerhalb von 500m einer Grünfläche
-- **Einwohnergewichtet:** 55,2% – weil dicht besiedelte Bereiche mit schlechter 
+- **Flächenbasiert:** 95,3% der Stadtfläche liegt innerhalb von 500m einer Grünfläche
+- **Einwohnergewichtet:** 61,1% – weil dicht besiedelte Bereiche mit schlechter
   Versorgung stärker ins Gewicht fallen
 
 ### Naherholungsgebiete
 
-Folgende OSM-Tags werden als Naherholungsgebiete klassifiziert 
+Folgende OSM-Tags werden als Naherholungsgebiete klassifiziert
 (Mindestfläche: 5.000 m²):
 
 | OSM-Tag | Beschreibung |
@@ -76,20 +77,20 @@ Folgende OSM-Tags werden als Naherholungsgebiete klassifiziert
 
 ### ⚠️ Methodische Einschränkungen
 
-- **Stadtumland wird nicht berücksichtigt** – Einwohner in Randlagen können 
-  eine schlechtere Versorgung angezeigt bekommen als in der Realität, da 
+- **Stadtumland wird nicht berücksichtigt** – Einwohner in Randlagen können
+  eine schlechtere Versorgung angezeigt bekommen als in der Realität, da
   Grünflächen im direkten Umland nicht einbezogen werden
-- **Nur kartierte OSM-Flächen fließen ein** – bewirtschaftete Flächen die 
-  in der Realität als Naherholungsgebiet genutzt werden (z.B. Feldwege, 
+- **Nur kartierte OSM-Flächen fließen ein** – bewirtschaftete Flächen die
+  in der Realität als Naherholungsgebiet genutzt werden (z.B. Feldwege,
   das Meßdorfer Feld in Bonn) werden nicht erfasst
-- **Luftlinie statt Gehweg** – die tatsächliche Wegstrecke kann durch 
+- **Luftlinie statt Gehweg** – die tatsächliche Wegstrecke kann durch
   Barrieren wie Straßen, Gleise oder Bebauung länger sein
-- **OSM-Datenlage** – Vollständigkeit und Aktualität der Grünflächen 
+- **OSM-Datenlage** – Vollständigkeit und Aktualität der Grünflächen
   variiert je nach Stadt
-  
+
 ---
 
-## Verwendung
+## 🚀 Verwendung
 
 ### Voraussetzungen
 
@@ -154,7 +155,7 @@ gruenflaechen-analyse/
 
 ---
 
-## Lizenz
+## 📄 Lizenz
 
 Dieses Projekt steht unter der [MIT Lizenz](LICENSE).  
 Kartendaten © OpenStreetMap contributors · Zensus 2022 © Statistische Ämter des Bundes und der Länder
